@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-face-aframe.prod.js"></script>
+  </head>
+  <body>
+    <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-assets>
+	<a-asset-item id="hat" src="https://gitknu.github.io/novitukr/graduation_cap_small.glb"></a-asset-item>
+	<a-asset-item id="knu" src="https://gitknu.github.io/novitukr/knu.glb"></a-asset-item>
+	<a-asset-item id="letters" src="https://gitknu.github.io/novitukr/knu_letters.glb"></a-asset-item>
+	<a-asset-item id="headModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/face-tracking/assets/sparkar/headOccluder.glb"></a-asset-item>
+      </a-assets>
+
+      <a-camera active="false" position="0 0 0"></a-camera>
+      <a-entity mindar-face-target="anchorIndex: 10">
+        <a-gltf-model mindar-face-occluder position="0 -0.3 0.15" rotation="0 0 0" scale="0.065 0.065 0.065" src="#headModel"></a-gltf-model>
+      </a-entity>
+      <a-entity mindar-face-target="anchorIndex: 10">
+        <a-gltf-model rotation="0 90 0" position="0 0.65 0" scale="0.3 0.3 0.3" src="#hat"></a-gltf-model>
+      </a-entity>
+      <a-entity mindar-face-target="anchorIndex: 195">
+        <a-gltf-model rotation="0 0 0" position="1.8 0 0" scale="0.35 0.35 0.35" src="#knu"></a-gltf-model>
+      </a-entity>
+      <a-entity mindar-face-target="anchorIndex: 10">
+        <a-gltf-model rotation="90 0 0" position="2.1 0 0" scale="0.007 0.007 0.007" src="#letters"></a-gltf-model>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
